@@ -1,18 +1,18 @@
 /* ==========================================
-   BRUSH PAINTING ART DESIGN
-   Ink wash, hand-painted textures, organic shapes
+   PERSIAN ISLAMIC BRUSH PAINTING DESIGN
+   Bold artistic elements, visible textures, hand-painted feel
    ========================================== */
 
 :root {
-    --ink-black: #1A1A1A;
-    --ink-gray: #4A4A4A;
+    --ink: #1A1210;
+    --ink-light: #4A4540;
     --emerald: #047857;
     --emerald-light: #10B981;
     --gold: #D97706;
-    --gold-light: #F59E0B;
-    --paper: #F5EFE7;
-    --paper-dark: #E8DCC8;
-    --cream: #FFFBF0;
+    --gold-light: #FBBF24;
+    --paper: #F8F4EC;
+    --paper-dark: #EBE4D8;
+    --cream: #FFFDF7;
 }
 
 * {
@@ -23,256 +23,158 @@
 
 body {
     font-family: 'Vazirmatn', sans-serif;
-    background-color: var(--paper);
+    background: var(--paper);
     background-image:
-        /* Paper grain texture */
-        url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='4'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E"),
-        /* Subtle tea stain effect */
-        radial-gradient(ellipse at 20% 30%, rgba(217, 119, 6, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 70%, rgba(4, 120, 87, 0.03) 0%, transparent 50%);
-    background-blend-mode: multiply, normal, normal;
-    color: var(--ink-black);
+        /* Visible paper texture */
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(120, 100, 80, 0.02) 2px, rgba(120, 100, 80, 0.02) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(120, 100, 80, 0.02) 2px, rgba(120, 100, 80, 0.02) 4px),
+        /* Tea stain effect */
+        radial-gradient(ellipse at 15% 20%, rgba(217, 119, 6, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 85% 80%, rgba(4, 120, 87, 0.04) 0%, transparent 40%),
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-dark) 100%);
+    color: var(--ink);
     line-height: 1.7;
     position: relative;
+    min-height: 100vh;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    position: relative;
+    z-index: 10;
 }
 
 /* ==========================================
-   Floating ink splatters
+   Islamic Pattern Decorations - VISIBLE
    ========================================== */
 
-.ink-splatter {
+.pattern-decoration {
     position: fixed;
-    border-radius: 50%;
     pointer-events: none;
-    z-index: 0;
-    filter: blur(40px);
-    animation: drift 30s ease-in-out infinite;
+    z-index: 1;
+    animation: gentle-float 20s ease-in-out infinite;
 }
 
-.splatter-1 {
+.star-top-right {
     top: 10%;
-    right: 5%;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(4, 120, 87, 0.12) 0%, transparent 70%);
+    left: 5%;
     animation-delay: 0s;
 }
 
-.splatter-2 {
-    top: 60%;
-    left: 10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, transparent 70%);
+.star-bottom-left {
+    bottom: 15%;
+    right: 8%;
     animation-delay: 10s;
 }
 
-.splatter-3 {
-    bottom: 20%;
-    right: 15%;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(4, 120, 87, 0.1) 0%, transparent 70%);
-    animation-delay: 20s;
+.arabesque-corner {
+    position: fixed;
+    top: 15%;
+    right: 5%;
+    pointer-events: none;
+    z-index: 1;
+    animation: gentle-float 25s ease-in-out infinite;
 }
 
-@keyframes drift {
+@keyframes gentle-float {
     0%, 100% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0) rotate(0deg);
     }
     25% {
-        transform: translate(30px, -20px) scale(1.1);
+        transform: translate(10px, -10px) rotate(2deg);
     }
     50% {
-        transform: translate(-20px, 30px) scale(0.95);
+        transform: translate(-5px, 15px) rotate(-1deg);
     }
     75% {
-        transform: translate(20px, 20px) scale(1.05);
+        transform: translate(15px, 5px) rotate(1deg);
     }
 }
 
 /* ==========================================
-   Navigation with brush strokes
+   Navigation
    ========================================== */
 
 .nav {
-    padding: 1.5rem 0;
+    padding: 2rem 0 1rem;
     position: relative;
-    z-index: 100;
-    background: rgba(245, 239, 231, 0.95);
+    background: rgba(248, 244, 236, 0.95);
     backdrop-filter: blur(10px);
-}
-
-.brush-divider {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    overflow: hidden;
-}
-
-.brush-divider.top {
-    top: -20px;
-}
-
-.brush-divider.bottom {
-    bottom: -20px;
-}
-
-.brush-divider::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        var(--emerald) 10%,
-        var(--gold) 50%,
-        var(--emerald) 90%,
-        transparent 100%
-    );
-    opacity: 0.3;
-    filter: url(#brush-texture);
-}
-
-.brush-divider.top::before {
-    top: 20px;
-}
-
-.brush-divider.bottom::before {
-    bottom: 20px;
+    z-index: 100;
 }
 
 .nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
-    z-index: 10;
 }
 
 .logo {
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 0.5rem;
 }
 
 .logo-text {
     font-family: 'Amiri', serif;
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 700;
-    color: var(--ink-black);
+    color: var(--ink);
     line-height: 1;
 }
 
 .logo-brush {
-    margin-top: 0.25rem;
+    display: block;
 }
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .nav-link {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    color: var(--ink-gray);
+    color: var(--ink-light);
     text-decoration: none;
     position: relative;
-    padding: 0.5rem 0;
     transition: color 0.3s;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 3px;
-    background: var(--emerald);
-    transition: width 0.3s;
-    filter: url(#brush-texture);
-}
-
-.nav-link:hover,
 .nav-link.active {
     color: var(--emerald);
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-    width: 100%;
+.nav-link:hover {
+    color: var(--emerald);
+}
+
+.nav-brush-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 /* ==========================================
-   Hero - Ink wash painting style
+   Hero with Visible Brush Painting
    ========================================== */
 
 .hero {
-    padding: 6rem 0 5rem;
+    padding: 5rem 0;
     position: relative;
     overflow: hidden;
 }
 
-/* Large organic ink washes */
-.ink-wash {
+.hero-brush-bg {
     position: absolute;
-    border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.15;
-    animation: wash-flow 25s ease-in-out infinite;
-}
-
-.wash-1 {
-    top: -10%;
-    right: -5%;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle,
-        var(--emerald) 0%,
-        var(--emerald-light) 40%,
-        transparent 70%
-    );
-    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-}
-
-.wash-2 {
-    bottom: -15%;
-    left: -10%;
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle,
-        var(--gold) 0%,
-        var(--gold-light) 35%,
-        transparent 65%
-    );
-    border-radius: 45% 55% 60% 40% / 50% 60% 40% 50%;
-    animation-delay: -12s;
-}
-
-@keyframes wash-flow {
-    0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
-        border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
-    }
-    33% {
-        transform: translate(50px, -30px) rotate(120deg);
-        border-radius: 40% 60% 45% 55% / 60% 50% 50% 40%;
-    }
-    66% {
-        transform: translate(-30px, 40px) rotate(240deg);
-        border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
-    }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .hero .container {
@@ -282,63 +184,49 @@ body {
 
 .hero-content {
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     position: relative;
 }
 
-.decorative-brush {
-    position: absolute;
-    top: -60px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
+.hero-ornament {
+    display: block;
+    margin: 0 auto 2rem;
 }
 
 .hero-title {
     font-family: 'Amiri', serif;
-    font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 700;
     line-height: 1.3;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     position: relative;
 }
 
-.title-line {
+.title-main {
     display: block;
-    color: var(--ink-black);
-    position: relative;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    color: var(--ink);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.title-line.accent {
+.title-sub {
+    display: block;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
     color: var(--emerald);
-    font-size: 0.8em;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
-/* Brush stroke underline */
-.hero-title::after {
-    content: '';
-    position: absolute;
-    bottom: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 20px;
-    background: linear-gradient(90deg,
-        transparent,
-        var(--gold) 20%,
-        var(--gold) 80%,
-        transparent
-    );
-    opacity: 0.2;
-    border-radius: 50%;
-    filter: url(#brush-texture);
+.title-brush-decoration {
+    display: block;
+    margin: 2rem auto 3rem;
+    max-width: 100%;
+    height: auto;
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    color: var(--ink-gray);
+    color: var(--ink-light);
     margin-bottom: 3rem;
     font-weight: 400;
 }
@@ -347,54 +235,39 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 1.25rem 3rem;
+    padding: 1.5rem 4rem;
     background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
     color: white;
-    font-size: 1.25rem;
+    font-size: 1.375rem;
     font-weight: 700;
     text-decoration: none;
-    border-radius: 60px;
-    box-shadow: 0 10px 40px rgba(4, 120, 87, 0.3);
+    border-radius: 50px;
+    box-shadow:
+        0 15px 40px rgba(4, 120, 87, 0.25),
+        0 5px 15px rgba(4, 120, 87, 0.15);
     position: relative;
-    overflow: hidden;
-    transition: all 0.4s;
-    filter: url(#brush-texture);
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
-    transform: scale(0);
-    transition: transform 0.6s;
-}
-
-.cta-button:hover::before {
-    transform: scale(1);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .cta-button:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow: 0 15px 50px rgba(4, 120, 87, 0.4);
+    transform: translateY(-6px);
+    box-shadow:
+        0 25px 60px rgba(4, 120, 87, 0.35),
+        0 10px 25px rgba(4, 120, 87, 0.2);
 }
 
-.button-arrow {
-    transition: transform 0.3s;
-}
-
-.cta-button:hover .button-arrow {
-    transform: translateX(-6px);
-}
-
-.hero-brush-bottom {
+.brush-splash {
     position: absolute;
-    bottom: -10px;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.hero-bottom-brush {
+    position: absolute;
+    bottom: 0;
     left: 0;
-    z-index: 5;
 }
 
 /* ==========================================
@@ -402,48 +275,49 @@ body {
    ========================================== */
 
 .books {
-    padding: 5rem 0 6rem;
+    padding: 6rem 0;
     position: relative;
 }
 
-.title-wrapper {
-    position: relative;
+.pattern-header {
     text-align: center;
-    margin-bottom: 4rem;
-}
-
-.title-brush {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-bottom: 2rem;
 }
 
 .section-title {
     font-family: 'Amiri', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    color: var(--ink-black);
+    color: var(--ink);
+    text-align: center;
+    margin-bottom: 4rem;
     position: relative;
     display: inline-block;
 }
 
+.title-ornament {
+    position: absolute;
+    top: 50%;
+    left: -70px;
+    transform: translateY(-50%);
+}
+
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 3rem 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 4rem 3rem;
 }
 
 .loading {
     grid-column: 1 / -1;
     text-align: center;
-    padding: 4rem;
-    color: var(--ink-gray);
-    font-size: 1.25rem;
+    padding: 6rem 2rem;
+    color: var(--ink-light);
+    font-size: 1.375rem;
 }
 
 /* ==========================================
-   Book Card - Watercolor wash effect
+   Book Card - Artistic Watercolor Style
    ========================================== */
 
 .book-card {
@@ -452,45 +326,48 @@ body {
     transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+/* Watercolor wash background */
 .book-card::before {
     content: '';
     position: absolute;
-    top: -20px;
-    right: -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-    background: radial-gradient(circle at top right,
-        var(--emerald) 0%,
-        transparent 60%
+    top: -30px;
+    right: -30px;
+    bottom: -30px;
+    left: -30px;
+    background: radial-gradient(ellipse at top right,
+        rgba(4, 120, 87, 0.15) 0%,
+        rgba(4, 120, 87, 0.08) 40%,
+        transparent 70%
     );
+    border-radius: 50% 40% 60% 50%;
     opacity: 0;
-    transition: opacity 0.5s;
-    border-radius: 20px;
+    transition: all 0.6s ease;
     z-index: -1;
-    filter: blur(30px);
 }
 
 .book-card:hover::before {
-    opacity: 0.15;
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
 }
 
 .book-card:hover {
-    transform: translateY(-16px) rotate(-1deg);
+    transform: translateY(-20px) rotate(-2deg);
 }
 
 .book-cover-wrapper {
     position: relative;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
+    margin-bottom: 1.75rem;
+    border-radius: 6px;
     overflow: hidden;
     background: white;
     box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        0 12px 40px rgba(0, 0, 0, 0.15),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.5);
     transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Ink wash overlay on hover */
+/* Ink overlay on hover */
 .book-cover-wrapper::after {
     content: '';
     position: absolute;
@@ -498,22 +375,21 @@ body {
     right: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg,
-        rgba(4, 120, 87, 0.3) 0%,
-        rgba(217, 119, 6, 0.2) 100%
-    );
+    background:
+        radial-gradient(ellipse at top right, rgba(217, 119, 6, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom left, rgba(4, 120, 87, 0.25) 0%, transparent 50%);
     opacity: 0;
     transition: opacity 0.5s;
-    mix-blend-mode: multiply;
     z-index: 2;
+    mix-blend-mode: multiply;
 }
 
 .book-card:hover .book-cover-wrapper {
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.25),
-        0 0 0 4px rgba(4, 120, 87, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    transform: scale(1.02);
+        0 25px 70px rgba(0, 0, 0, 0.25),
+        0 10px 30px rgba(4, 120, 87, 0.2),
+        0 0 0 6px rgba(4, 120, 87, 0.08);
+    transform: scale(1.03);
 }
 
 .book-card:hover .book-cover-wrapper::after {
@@ -525,55 +401,54 @@ body {
     aspect-ratio: 3 / 4;
     object-fit: cover;
     display: block;
-    position: relative;
-    z-index: 1;
 }
 
 .book-badge {
     position: absolute;
-    top: 16px;
-    left: 16px;
+    top: 20px;
+    left: 20px;
     background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
     color: white;
-    padding: 0.625rem 1.25rem;
-    border-radius: 25px;
-    font-size: 0.875rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-size: 0.9375rem;
     font-weight: 700;
     z-index: 3;
-    box-shadow: 0 4px 16px rgba(4, 120, 87, 0.4);
-    filter: url(#brush-texture);
+    box-shadow:
+        0 6px 20px rgba(4, 120, 87, 0.4),
+        0 2px 8px rgba(4, 120, 87, 0.2);
     letter-spacing: 0.5px;
 }
 
 .book-title {
     font-family: 'Amiri', serif;
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: var(--ink-black);
+    color: var(--ink);
     line-height: 1.5;
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.75rem;
 }
 
 .book-author {
     font-family: 'Amiri', serif;
-    font-size: 1.0625rem;
-    color: var(--ink-gray);
-    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    color: var(--ink-light);
+    margin-bottom: 1.25rem;
 }
 
 .book-meta {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .book-size {
-    font-size: 0.9375rem;
-    color: var(--ink-gray);
-    font-weight: 500;
-    background: rgba(4, 120, 87, 0.06);
-    padding: 0.375rem 0.875rem;
-    border-radius: 20px;
+    font-size: 1rem;
+    color: var(--ink-light);
+    font-weight: 600;
+    background: linear-gradient(135deg, rgba(4, 120, 87, 0.08), rgba(217, 119, 6, 0.06));
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
 }
 
 /* ==========================================
@@ -581,19 +456,16 @@ body {
    ========================================== */
 
 .footer {
-    padding: 3rem 0 2rem;
+    padding: 4rem 0 3rem;
     position: relative;
-    background: linear-gradient(180deg,
-        var(--paper) 0%,
-        var(--paper-dark) 100%
-    );
+    background: linear-gradient(180deg, var(--paper) 0%, var(--paper-dark) 100%);
+    margin-top: 4rem;
 }
 
 .footer-brush {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
 }
 
 .footer .container {
@@ -605,43 +477,52 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
-.footer-text {
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-logo {
     font-family: 'Amiri', serif;
-    font-size: 1.125rem;
-    color: var(--ink-gray);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.footer-tagline {
+    font-size: 1rem;
+    color: var(--ink-light);
+    font-weight: 400;
 }
 
 .footer-link {
     color: var(--emerald);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.0625rem;
+    font-weight: 700;
+    font-size: 1.125rem;
     transition: all 0.3s;
-    position: relative;
-}
-
-.footer-link::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--emerald);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s;
-}
-
-.footer-link:hover::before {
-    transform: scaleX(1);
 }
 
 .footer-link:hover {
     color: var(--emerald-light);
+}
+
+.footer-arabesque {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    opacity: 0.6;
+}
+
+/* Visible section brush accent */
+.section-brush-accent {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
 }
 
 /* ==========================================
@@ -653,12 +534,13 @@ body {
         padding: 0 1.5rem;
     }
 
-    .nav {
-        padding: 1.25rem 0;
+    .pattern-decoration,
+    .arabesque-corner {
+        display: none; /* Hide on mobile for cleaner look */
     }
 
     .logo-text {
-        font-size: 1.625rem;
+        font-size: 1.75rem;
     }
 
     .nav-links {
@@ -666,21 +548,28 @@ body {
     }
 
     .nav-link {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     .hero {
-        padding: 4rem 0 3rem;
+        padding: 3rem 0;
     }
 
-    .decorative-brush {
+    .hero-ornament {
         width: 60px;
         height: 60px;
-        top: -40px;
     }
 
-    .hero-title {
-        font-size: 2.25rem;
+    .title-main {
+        font-size: 2.5rem;
+    }
+
+    .title-sub {
+        font-size: 1.5rem;
+    }
+
+    .title-brush-decoration {
+        width: 300px;
     }
 
     .hero-subtitle {
@@ -689,27 +578,38 @@ body {
 
     .cta-button {
         font-size: 1.125rem;
-        padding: 1.125rem 2.5rem;
+        padding: 1.25rem 3rem;
     }
 
-    .ink-splatter {
+    .brush-splash {
+        width: 120px;
+        height: 120px;
+    }
+
+    .books {
+        padding: 4rem 0;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .title-ornament {
         display: none;
     }
 
     .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 2.5rem 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 
     .footer-content {
         flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
         text-align: center;
     }
-}
 
-@media (min-width: 1400px) {
-    .books-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    .footer-arabesque {
+        display: none;
     }
 }

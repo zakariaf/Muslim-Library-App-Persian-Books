@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+  <!-- 8-Pointed Islamic Star Pattern -->
+  <symbol id="islamic-star" viewBox="0 0 100 100">
+    <g fill="#047857" opacity="0.15">
+      <path d="M50,10 L55,40 L70,20 L60,45 L90,35 L65,50 L90,65 L60,55 L70,80 L55,60 L50,90 L45,60 L30,80 L40,55 L10,65 L35,50 L10,35 L40,45 L30,20 L45,40 Z"/>
+    </g>
+    <g fill="none" stroke="#047857" stroke-width="1" opacity="0.3">
+      <circle cx="50" cy="50" r="35"/>
+      <circle cx="50" cy="50" r="25"/>
+      <circle cx="50" cy="50" r="15"/>
+    </g>
+  </symbol>
+
+  <!-- Arabesque Floral Corner -->
+  <symbol id="arabesque-corner" viewBox="0 0 100 100">
+    <path d="M10,90 Q20,70 30,60 Q40,50 50,45 Q60,40 70,30 Q80,20 90,10"
+          fill="none" stroke="#D97706" stroke-width="2" opacity="0.4"/>
+    <path d="M20,90 Q30,75 40,65 Q50,55 60,50"
+          fill="none" stroke="#D97706" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="30" cy="60" r="3" fill="#D97706" opacity="0.4"/>
+    <circle cx="50" cy="45" r="4" fill="#D97706" opacity="0.4"/>
+    <circle cx="70" cy="30" r="3" fill="#D97706" opacity="0.4"/>
+    <!-- Leaves -->
+    <ellipse cx="25" cy="70" rx="5" ry="8" fill="#047857" opacity="0.2" transform="rotate(45 25 70)"/>
+    <ellipse cx="45" cy="55" rx="6" ry="9" fill="#047857" opacity="0.2" transform="rotate(30 45 55)"/>
+    <ellipse cx="65" cy="40" rx="5" ry="8" fill="#047857" opacity="0.2" transform="rotate(60 65 40)"/>
+  </symbol>
+
+  <!-- Islamic Geometric Border -->
+  <symbol id="geometric-border" viewBox="0 0 200 20">
+    <g fill="#047857" opacity="0.25">
+      <rect x="0" y="8" width="12" height="4" transform="rotate(45 6 10)"/>
+      <rect x="25" y="8" width="12" height="4" transform="rotate(45 31 10)"/>
+      <rect x="50" y="8" width="12" height="4" transform="rotate(45 56 10)"/>
+      <rect x="75" y="8" width="12" height="4" transform="rotate(45 81 10)"/>
+      <rect x="100" y="8" width="12" height="4" transform="rotate(45 106 10)"/>
+      <rect x="125" y="8" width="12" height="4" transform="rotate(45 131 10)"/>
+      <rect x="150" y="8" width="12" height="4" transform="rotate(45 156 10)"/>
+      <rect x="175" y="8" width="12" height="4" transform="rotate(45 181 10)"/>
+    </g>
+  </symbol>
+
+  <!-- Brush Stroke 1 (horizontal sweep) -->
+  <symbol id="brush-stroke-1" viewBox="0 0 300 30">
+    <path d="M0,15 Q50,10 100,15 Q150,20 200,15 Q250,12 300,15"
+          fill="none"
+          stroke="#047857"
+          stroke-width="8"
+          stroke-linecap="round"
+          opacity="0.3"
+          filter="url(#brush-texture)"/>
+  </symbol>
+
+  <!-- Brush Stroke 2 (curved sweep) -->
+  <symbol id="brush-stroke-2" viewBox="0 0 200 100">
+    <path d="M10,80 Q60,20 120,50 Q180,80 190,40"
+          fill="none"
+          stroke="#D97706"
+          stroke-width="12"
+          stroke-linecap="round"
+          opacity="0.25"
+          filter="url(#brush-texture)"/>
+  </symbol>
+
+  <!-- Ink Splash -->
+  <symbol id="ink-splash" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="30" fill="#047857" opacity="0.12" filter="url(#ink-splatter)"/>
+    <circle cx="40" cy="40" r="8" fill="#047857" opacity="0.15" filter="url(#ink-splatter)"/>
+    <circle cx="65" cy="55" r="6" fill="#047857" opacity="0.1" filter="url(#ink-splatter)"/>
+    <circle cx="55" cy="70" r="5" fill="#047857" opacity="0.08" filter="url(#ink-splatter)"/>
+  </symbol>
+
+</svg>
