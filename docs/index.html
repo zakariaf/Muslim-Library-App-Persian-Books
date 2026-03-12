@@ -13,42 +13,119 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Minimal Navigation -->
+    <!-- SVG Filters for brush effects -->
+    <svg style="position: absolute; width: 0; height: 0;">
+        <defs>
+            <filter id="brush-texture">
+                <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+            </filter>
+
+            <filter id="ink-splatter">
+                <feTurbulence type="fractalNoise" baseFrequency="2" numOctaves="3" result="turbulence"/>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+
+            <filter id="paper-texture">
+                <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="5" result="noise"/>
+                <feColorMatrix type="saturate" values="0" in="noise" result="monoNoise"/>
+                <feBlend in="SourceGraphic" in2="monoNoise" mode="multiply"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Ink Splatters -->
+    <div class="ink-splatter splatter-1"></div>
+    <div class="ink-splatter splatter-2"></div>
+    <div class="ink-splatter splatter-3"></div>
+
+    <!-- Navigation -->
     <nav class="nav">
+        <div class="brush-divider top"></div>
         <div class="container">
-            <a href="index.html" class="logo">کتابخانه مسلمین</a>
+            <a href="index.html" class="logo">
+                <span class="logo-text">کتابخانه مسلمین</span>
+                <svg class="logo-brush" width="120" height="8" viewBox="0 0 120 8">
+                    <path d="M0,4 Q30,1 60,4 T120,4" stroke="#047857" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.4"/>
+                </svg>
+            </a>
             <div class="nav-links">
-                <a href="browse.html">کتاب‌ها</a>
-                <a href="about.html">درباره</a>
+                <a href="index.html" class="nav-link active">خانه</a>
+                <a href="browse.html" class="nav-link">کتاب‌ها</a>
+                <a href="about.html" class="nav-link">درباره</a>
             </div>
         </div>
+        <div class="brush-divider bottom"></div>
     </nav>
 
-    <!-- Hero - Minimal with Watercolor Accent -->
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="watercolor-accent"></div>
+        <!-- Large ink wash background -->
+        <div class="ink-wash wash-1"></div>
+        <div class="ink-wash wash-2"></div>
+
         <div class="container">
-            <h1 class="hero-title">کتاب‌های اسلامی<br>به زبان فارسی</h1>
-            <p class="hero-subtitle">مجموعه‌ای منتخب از کتب اسلامی برای مطالعه و پژوهش</p>
-            <a href="browse.html" class="cta-button">مشاهده کتاب‌ها</a>
+            <div class="hero-content">
+                <!-- Decorative brush element -->
+                <svg class="decorative-brush" width="100" height="100" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="#047857" opacity="0.08" filter="url(#ink-splatter)"/>
+                    <circle cx="50" cy="50" r="25" fill="#D97706" opacity="0.06" filter="url(#ink-splatter)"/>
+                </svg>
+
+                <h1 class="hero-title">
+                    <span class="title-line">کتاب‌های اسلامی</span>
+                    <span class="title-line accent">به زبان فارسی</span>
+                </h1>
+
+                <p class="hero-subtitle">مجموعه‌ای منتخب از کتب اسلامی برای مطالعه و پژوهش</p>
+
+                <!-- Brush stroke button -->
+                <a href="browse.html" class="cta-button">
+                    <span>مشاهده کتاب‌ها</span>
+                    <svg class="button-arrow" width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M7 15L12 10L7 5" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
+
+        <!-- Bottom brush stroke -->
+        <svg class="hero-brush-bottom" width="100%" height="100" viewBox="0 0 1200 100" preserveAspectRatio="none">
+            <path d="M0,50 Q300,30 600,50 T1200,50" stroke="#047857" stroke-width="2" fill="none" opacity="0.2" filter="url(#brush-texture)"/>
+            <path d="M0,60 Q300,70 600,60 T1200,60" stroke="#D97706" stroke-width="2" fill="none" opacity="0.15" filter="url(#brush-texture)"/>
+        </svg>
     </section>
 
-    <!-- Books Grid - Clean & Spacious -->
+    <!-- Books Section -->
     <section class="books">
         <div class="container">
-            <h2 class="section-title">کتاب‌ها</h2>
+            <!-- Brush stroke title decoration -->
+            <div class="title-wrapper">
+                <svg class="title-brush" width="200" height="60" viewBox="0 0 200 60">
+                    <path d="M10,30 Q50,20 100,30 T190,30" stroke="#047857" stroke-width="4" fill="none" opacity="0.3" filter="url(#brush-texture)"/>
+                </svg>
+                <h2 class="section-title">کتاب‌ها</h2>
+            </div>
+
             <div class="books-grid" id="books-grid">
                 <div class="loading">در حال بارگذاری...</div>
             </div>
         </div>
     </section>
 
-    <!-- Footer - Minimal -->
+    <!-- Footer -->
     <footer class="footer">
+        <!-- Brush stroke separator -->
+        <svg class="footer-brush" width="100%" height="60" viewBox="0 0 1200 60">
+            <path d="M0,30 Q300,20 600,30 T1200,30" stroke="#047857" stroke-width="3" fill="none" opacity="0.2" filter="url(#brush-texture)"/>
+            <circle cx="600" cy="30" r="6" fill="#D97706" opacity="0.3"/>
+        </svg>
+
         <div class="container">
-            <p class="footer-text">کتابخانه مسلمین • ۱۴۰۵</p>
-            <a href="https://github.com/zakariaf/Muslim-Library-App-Persian-Books" class="footer-link">GitHub</a>
+            <div class="footer-content">
+                <p class="footer-text">کتابخانه مسلمین • ۱۴۰۵</p>
+                <a href="https://github.com/zakariaf/Muslim-Library-App-Persian-Books" class="footer-link">GitHub</a>
+            </div>
         </div>
     </footer>
 
