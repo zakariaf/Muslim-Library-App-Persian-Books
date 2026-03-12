@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-03-12T05:00:00Z",
+  "last_updated": "2026-03-12T08:30:00Z",
   "books": [
     {
       "id": 1900,
@@ -66,6 +66,61 @@
       "cover": "covers/book_1905.jpg",
       "file": "books/book_1905.json",
       "size": 1149887,
+      "book_version": 1
+    },
+    {
+      "id": 73,
+      "added_at": "2026-03-12T08:30:00Z",
+      "title": "ترجمه فارسی اللؤلؤ والمرجان فیما اتفق علیه الشیخان - جلد اول",
+      "author": "محمد فؤاد عبدالباقی",
+      "translator": "ابوبکر حسن زاده",
+      "cover": "covers/book_73.jpg",
+      "file": "books/book_73.json",
+      "size": 1649320,
+      "book_version": 1
+    },
+    {
+      "id": 74,
+      "added_at": "2026-03-12T08:30:00Z",
+      "title": "ترجمه فارسی اللؤلؤ والمرجان فیما اتفق علیه الشیخان - جلد دوم",
+      "author": "محمد فؤاد عبدالباقی",
+      "translator": "ابوبکر حسن زاده",
+      "cover": "covers/book_74.jpg",
+      "file": "books/book_74.json",
+      "size": 1627085,
+      "book_version": 1
+    },
+    {
+      "id": 1300,
+      "added_at": "2026-03-12T08:30:00Z",
+      "title": "ترجمه فارسی اللؤلؤ والمرجان فیما اتفق علیه الشیخان - جلد سوم",
+      "author": "محمد فؤاد عبدالباقی",
+      "translator": "ابوبکر حسن زاده",
+      "cover": "covers/book_1300.jpg",
+      "file": "books/book_1300.json",
+      "size": 1591377,
+      "book_version": 1
+    },
+    {
+      "id": 1318,
+      "added_at": "2026-03-12T08:30:00Z",
+      "title": "احادیث قدسی",
+      "author": "درویش جویدی",
+      "translator": "جهانگير ولدبيگى",
+      "cover": "covers/book_1318.jpg",
+      "file": "books/book_1318.json",
+      "size": 392422,
+      "book_version": 1
+    },
+    {
+      "id": 444,
+      "added_at": "2026-03-12T08:30:00Z",
+      "title": "ترجمه فارسی ریاض الصالحین",
+      "author": "ابی زکریا یحیی بن شرف نووی دمشقی شافعی",
+      "translator": "عبدالله خاموش هروی",
+      "cover": "covers/book_444.jpg",
+      "file": "books/book_444.json",
+      "size": 3720793,
       "book_version": 1
     }
   ]
