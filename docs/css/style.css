@@ -1,0 +1,734 @@
+/* ==========================================
+   Brush Painting Art Style - Islamic Library
+   ========================================== */
+
+:root {
+    /* Colors - Inspired by Persian miniature paintings */
+    --emerald: #047857;
+    --emerald-light: #10B981;
+    --emerald-dark: #065F46;
+    --gold: #F59E0B;
+    --gold-light: #FCD34D;
+    --cream: #FFFBF0;
+    --cream-dark: #FEF3C7;
+    --brown: #78350F;
+    --brown-dark: #451A03;
+    --gray: #6B7280;
+    --gray-light: #F3F4F6;
+
+    /* Typography */
+    --font-persian: 'Amiri', serif;
+    --font-ui: 'Vazirmatn', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+
+    /* Effects */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-ui);
+    background: var(--cream);
+    color: var(--brown-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ==========================================
+   Navigation
+   ========================================== */
+
+.nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 251, 240, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--cream-dark);
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(120, 53, 15, 0.08);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text {
+    font-family: var(--font-persian);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--emerald-dark);
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: var(--gray);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.nav-link {
+    font-family: var(--font-ui);
+    font-size: 1rem;
+    color: var(--brown);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--emerald);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 60%;
+}
+
+/* ==========================================
+   Hero Section - Brush Painting Style
+   ========================================== */
+
+.hero {
+    position: relative;
+    padding: var(--spacing-2xl) 0;
+    overflow: hidden;
+    background: linear-gradient(180deg,
+        var(--cream) 0%,
+        var(--cream-dark) 50%,
+        var(--cream) 100%
+    );
+}
+
+/* Brush Strokes */
+.brush-stroke {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.brush-top {
+    top: 0;
+    background: linear-gradient(180deg,
+        var(--emerald) 0%,
+        transparent 100%
+    );
+    clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+.brush-bottom {
+    bottom: 0;
+    background: linear-gradient(0deg,
+        var(--gold) 0%,
+        transparent 100%
+    );
+    clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-family: var(--font-persian);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+.title-brush {
+    display: block;
+    background: linear-gradient(135deg,
+        var(--emerald) 0%,
+        var(--emerald-light) 50%,
+        var(--gold) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 16px rgba(4, 120, 87, 0.2);
+}
+
+.title-accent {
+    display: block;
+    color: var(--gold);
+    font-size: 0.7em;
+    margin-top: var(--spacing-xs);
+}
+
+.hero-subtitle {
+    font-family: var(--font-persian);
+    font-size: 1.5rem;
+    color: var(--brown);
+    margin-bottom: var(--spacing-sm);
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: var(--gray);
+    margin-bottom: var(--spacing-xl);
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: 100px;
+    font-family: var(--font-ui);
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-light) 100%);
+    color: white;
+    box-shadow: 0 8px 24px rgba(4, 120, 87, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(4, 120, 87, 0.4);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--emerald);
+    border: 2px solid var(--emerald);
+}
+
+.btn-secondary:hover {
+    background: var(--emerald);
+    color: white;
+}
+
+.btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover .btn-icon {
+    transform: translateX(-4px);
+}
+
+/* Hero Art - Ink Effects */
+.hero-art {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.ink-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(4, 120, 87, 0.05) 0%,
+        rgba(4, 120, 87, 0.02) 40%,
+        transparent 70%
+    );
+    animation: float 8s ease-in-out infinite;
+}
+
+.ink-splash {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(ellipse at 30% 30%,
+        rgba(245, 158, 11, 0.08) 0%,
+        rgba(245, 158, 11, 0.03) 40%,
+        transparent 70%
+    );
+    border-radius: 60% 40% 30% 70% / 40% 50% 60% 50%;
+    animation: morph 10s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+}
+
+@keyframes morph {
+    0%, 100% {
+        border-radius: 60% 40% 30% 70% / 40% 50% 60% 50%;
+    }
+    50% {
+        border-radius: 30% 70% 70% 30% / 50% 40% 50% 60%;
+    }
+}
+
+/* ==========================================
+   Featured Books Section
+   ========================================== */
+
+.featured {
+    padding: var(--spacing-2xl) 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-title {
+    font-family: var(--font-persian);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--emerald-dark);
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    display: inline-block;
+}
+
+.title-decoration {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, var(--gold), var(--gold-light));
+    opacity: 0.2;
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.2; }
+    50% { transform: scale(1.2); opacity: 0.3; }
+}
+
+.section-subtitle {
+    color: var(--gray);
+    font-size: 1.125rem;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--gray);
+    font-size: 1.125rem;
+}
+
+/* Book Card - Watercolor Effect */
+.book-card {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+}
+
+.book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--emerald), var(--gold));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.book-card:hover::before {
+    transform: scaleX(1);
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.book-cover {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    background: linear-gradient(135deg, var(--cream-dark) 0%, var(--gray-light) 100%);
+}
+
+.book-info {
+    padding: var(--spacing-md);
+}
+
+.book-title {
+    font-family: var(--font-persian);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.4;
+}
+
+.book-author {
+    font-family: var(--font-persian);
+    color: var(--gray);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.book-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--gray);
+}
+
+.book-size {
+    background: var(--cream-dark);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 100px;
+}
+
+.book-badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: white;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+/* ==========================================
+   Features Section
+   ========================================== */
+
+.features {
+    position: relative;
+    padding: var(--spacing-2xl) 0;
+    overflow: hidden;
+}
+
+.brush-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+        rgba(4, 120, 87, 0.03) 0%,
+        rgba(245, 158, 11, 0.03) 100%
+    );
+    z-index: 0;
+}
+
+.features-grid {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.feature-card {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--emerald-light), var(--emerald));
+    border-radius: 50%;
+    color: white;
+    position: relative;
+}
+
+.feature-icon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon::before {
+    opacity: 0.3;
+    transform: scale(1.2);
+}
+
+.feature-title {
+    font-family: var(--font-persian);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-text {
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+/* ==========================================
+   Download Section
+   ========================================== */
+
+.download {
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, var(--emerald-dark) 0%, var(--emerald) 100%);
+    color: white;
+    text-align: center;
+}
+
+.download-title {
+    font-family: var(--font-persian);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+}
+
+.download-text {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xl);
+}
+
+.download-badges {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.app-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.app-badge:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-4px);
+}
+
+.badge-text {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.badge-store {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+
+.footer {
+    background: var(--brown-dark);
+    color: var(--cream);
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.footer-logo {
+    font-family: var(--font-persian);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.footer-tagline {
+    font-size: 0.875rem;
+    opacity: 0.7;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.footer-links a {
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid rgba(255, 251, 240, 0.2);
+    opacity: 0.6;
+    font-size: 0.875rem;
+}
+
+/* ==========================================
+   Responsive
+   ========================================== */
+
+@media (max-width: 768px) {
+    .nav-content {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}

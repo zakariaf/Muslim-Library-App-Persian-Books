@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتابخانه مسلمین - Islamic Digital Library</title>
+    <meta name="description" content="کتابخانه دیجیتال اسلامی با کتاب‌های فارسی - Islamic books in Persian, beautifully presented">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-text">کتابخانه مسلمین</span>
+                    <span class="logo-subtitle">Islamic Library</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link active">خانه</a>
+                    <a href="browse.html" class="nav-link">کتاب‌ها</a>
+                    <a href="about.html" class="nav-link">درباره</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="brush-stroke brush-top"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-brush">کتابخانه اسلامی</span>
+                    <span class="title-accent">دیجیتال</span>
+                </h1>
+                <p class="hero-subtitle">
+                    مجموعه‌ای از کتاب‌های اسلامی به زبان فارسی
+                </p>
+                <p class="hero-description">
+                    Islamic books in Persian, beautifully presented
+                </p>
+                <div class="hero-actions">
+                    <a href="browse.html" class="btn btn-primary">
+                        <span>مشاهده کتاب‌ها</span>
+                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </a>
+                    <a href="#download-app" class="btn btn-secondary">
+                        <span>دانلود اپلیکیشن</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-art">
+                <div class="ink-circle"></div>
+                <div class="ink-splash"></div>
+            </div>
+        </div>
+        <div class="brush-stroke brush-bottom"></div>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-decoration"></span>
+                    کتاب‌های ویژه
+                </h2>
+                <p class="section-subtitle">Recently added to the collection</p>
+            </div>
+            <div class="books-grid" id="featured-books">
+                <!-- Books will be loaded here -->
+                <div class="loading">در حال بارگذاری...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="brush-bg"></div>
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 44C35.0457 44 44 35.0457 44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44Z" stroke="currentColor" stroke-width="3"/>
+                            <path d="M24 14V24L30 30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">مطالعه آفلاین</h3>
+                    <p class="feature-text">کتاب‌ها را دانلود کرده و بدون نیاز به اینترنت مطالعه کنید</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="20" r="10" stroke="currentColor" stroke-width="3"/>
+                            <path d="M14 40C14 33.3726 18.4772 28 24 28C29.5228 28 34 33.3726 34 40" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">جستجو و نشانک‌گذاری</h3>
+                    <p class="feature-text">متن کامل کتاب‌ها قابل جستجو و صفحات مورد علاقه را نشانک‌گذاری کنید</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="3"/>
+                            <path d="M16 20H32M16 28H28" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">تایپوگرافی زیبا</h3>
+                    <p class="feature-text">فونت‌های حرفه‌ای برای تجربه مطالعه راحت و چشم‌نواز</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App -->
+    <section class="download" id="download-app">
+        <div class="container">
+            <div class="download-content">
+                <h2 class="download-title">دانلود اپلیکیشن موبایل</h2>
+                <p class="download-text">کتابخانه را در موبایل خود داشته باشید</p>
+                <div class="download-badges">
+                    <a href="#" class="app-badge">
+                        <span class="badge-text">به زودی</span>
+                        <span class="badge-store">App Store</span>
+                    </a>
+                    <a href="#" class="app-badge">
+                        <span class="badge-text">به زودی</span>
+                        <span class="badge-store">Google Play</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">کتابخانه مسلمین</span>
+                    <p class="footer-tagline">Islamic Digital Library</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/zakariaf/Muslim-Library-App-Persian-Books" target="_blank">GitHub</a>
+                    <a href="browse.html">Browse Books</a>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Muslim Library. Open source project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
