@@ -117,7 +117,7 @@ async function initHomePage() {
 
     if (!catalog || !catalog.books) {
         console.error('No books in catalog');
-        const container = document.getElementById('featured-books');
+        const container = document.getElementById('books-grid');
         if (container) {
             container.innerHTML = `
                 <div class="loading">
@@ -128,6 +128,14 @@ async function initHomePage() {
         return;
     }
 
+    // Update book count in hero and stats
+    const bookCount = catalog.books.length;
+    const heroCount = document.getElementById('hero-book-count');
+    const statsCount = document.getElementById('book-count');
+
+    if (heroCount) heroCount.textContent = bookCount;
+    if (statsCount) statsCount.textContent = bookCount;
+
     // Sort by newest first
     const sortedBooks = [...catalog.books].sort((a, b) => {
         const dateA = new Date(a.added_at || 0);
@@ -135,8 +143,8 @@ async function initHomePage() {
         return dateB - dateA;
     });
 
-    // Show up to 6 featured books
-    renderBooks(sortedBooks, 'featured-books', 6);
+    // Show up to 10 latest books
+    renderBooks(sortedBooks, 'books-grid', 10);
 }
 
 // ==========================================
