@@ -246,7 +246,7 @@ These 8 books are bundled with the Muslim Library app (available offline from fi
 - Book 1300
 - Book 1318
 - Book 444
-- 2 additional books (already in app/moslem branch)
+- 2 additional books (already in app/muslim branch)
 
 These MUST exist in both locations:
 - This catalog repo (`books/`, `covers/`, `index.json`)
@@ -263,7 +263,7 @@ These MUST exist in both locations:
 ## Related Repositories
 
 - **Mobile App:** [zakariaf/aqeedeh](https://github.com/zakariaf/aqeedeh) — Flutter app that consumes this catalog
-- **Branch:** `app/moslem-library` — Muslim Library app variant (8 bundled books + download system)
+- **Branch:** `app/muslim-library` — Muslim Library app variant (8 bundled books + download system)
 
 ## API Source
 
