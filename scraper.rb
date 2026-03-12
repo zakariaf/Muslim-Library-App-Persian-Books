@@ -37,7 +37,7 @@ class BookScraper
 
   def initialize(book_id, output_path = nil)
     @book_id = book_id
-    @output_path = output_path || "book_#{book_id}.json"
+    @output_path = output_path || "books/book_#{book_id}.json"
   end
 
   def run
@@ -221,7 +221,7 @@ class BookScraper
   def download_cover(image_url)
     return unless image_url && !image_url.empty?
 
-    cover_path = File.join('app', 'assets', 'books', "book_#{book_id}.jpg")
+    cover_path = File.join('covers', "book_#{book_id}.jpg")
     puts "\nDownloading cover image..."
     uri = URI(image_url)
     attempts = 0
