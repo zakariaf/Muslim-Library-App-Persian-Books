@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتاب‌ها - کتابخانه مسلمین</title>
+    <meta name="description" content="مرور و جستجو در مجموعه کتاب‌های اسلامی">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 2px solid var(--gray-300);
+            border-radius: 12px;
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 3px var(--emerald-light);
+        }
+
+        .sort-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .sort-button {
+            padding: 0.625rem 1.25rem;
+            background: white;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .sort-button:hover {
+            border-color: var(--emerald);
+            color: var(--emerald);
+        }
+
+        .sort-button.active {
+            background: var(--emerald);
+            border-color: var(--emerald);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <a href="index.html" class="logo">کتابخانه مسلمین</a>
+            <div class="nav-links">
+                <a href="browse.html" style="color: var(--emerald)">کتاب‌ها</a>
+                <a href="about.html">درباره</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="books" style="padding-top: 3rem;">
+        <div class="container">
+            <h1 class="section-title">مجموعه کتاب‌ها</h1>
+
+            <!-- Search -->
+            <div class="search-bar">
+                <input
+                    type="text"
+                    class="search-input"
+                    placeholder="جستجو در کتاب‌ها..."
+                    id="search-input"
+                >
+            </div>
+
+            <!-- Sort -->
+            <div class="sort-controls">
+                <button class="sort-button active" data-sort="newest">جدیدترین</button>
+                <button class="sort-button" data-sort="title">عنوان</button>
+                <button class="sort-button" data-sort="author">نویسنده</button>
+            </div>
+
+            <!-- Books Grid -->
+            <div class="books-grid" id="books-grid">
+                <div class="loading">در حال بارگذاری...</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">کتابخانه مسلمین • ۱۴۰۵</p>
+            <a href="https://github.com/zakariaf/Muslim-Library-App-Persian-Books" class="footer-link">GitHub</a>
+        </div>
+    </footer>
+
+    <script src="js/browse.js"></script>
+</body>
+</html>
