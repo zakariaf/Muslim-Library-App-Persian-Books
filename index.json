@@ -122,6 +122,17 @@
       "file": "books/book_444.json",
       "size": 3720793,
       "book_version": 1
+    },
+    {
+      "id": 1967,
+      "added_at": "2026-03-15T14:56:00Z",
+      "title": "شرح اذکار «حصن المسلم»",
+      "author": "هانی الحاج",
+      "translator": "عبدالله ریگی احمدی",
+      "cover": "covers/book_1967.jpg",
+      "file": "books/book_1967.json",
+      "size": 852977,
+      "book_version": 1
     }
   ]
 }
