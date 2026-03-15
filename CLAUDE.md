@@ -60,6 +60,7 @@ Schema:
 - `size` is in bytes — use `File.size()` or `ls -l` to get accurate size
 - `book_version` starts at `1`, increment when updating content
 - Books array is NOT sorted — order doesn't matter for the app
+- **Always update `last_updated`** at the top level of `index.json` when adding or modifying books
 
 ## Book JSON Schema
 
